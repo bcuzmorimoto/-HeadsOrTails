@@ -1,0 +1,36 @@
+package moeda;
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+        
+        Scanner input = new Scanner (System.in);
+        Moeda coin = new Moeda();
+        CaraThread cara = new CaraThread(coin);
+        CoroaThread coroa = new CoroaThread(coin);
+        
+        System.out.println("");
+        System.out.println("Fala memo: Cara ou Coroa?");
+        String algumacoisa = input.nextLine();
+        
+        cara.start();
+        coroa.start();
+        
+        String outracoisa = input.nextLine();
+        
+        if (outracoisa != null){
+            cara.stop();
+            coroa.stop();
+        }
+        
+        if (coin.getValor() == algumacoisa){
+            System.out.println("uhul");
+        } else {
+            System.out.println("nah");
+        }
+        
+    }
+    
+}

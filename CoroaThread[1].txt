@@ -1,0 +1,27 @@
+package moeda;
+
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+public class CoroaThread extends Thread {
+    
+    Moeda moeda;
+    
+    public CoroaThread (Moeda moeda){
+        this.moeda = moeda;
+    }
+    
+    public void run (){
+       while (true){
+            this.moeda.setValor("Coroa");
+            //System.out.println(moeda.getValor());
+           try {
+              sleep(10);
+           } catch (InterruptedException ex) {
+              Logger.getLogger(CoroaThread.class.getName()).log(Level.SEVERE, null, ex);
+           }
+        
+        }
+    }
+    
+}
